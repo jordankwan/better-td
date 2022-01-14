@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MetaKnight : MonoBehaviour {
   public int health = 100;
-  float speed = 0.01f;
+  [SerializeField] float speed = 0.01f;
     // Start is called before the first frame update
   [SerializeField] GameObject START_WAYPOINT;
   int waypoint_ind = 0;

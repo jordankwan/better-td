@@ -1263,6 +1263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  speed: 0.001
   START_WAYPOINT: {fileID: 1186005129}
 --- !u!61 &831823012
 BoxCollider2D:
@@ -1504,6 +1505,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8da634e5e54dd914fbd1af3b2e44a45c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  META_KNIGHT: {fileID: 831823008}
 --- !u!4 &1051797586
 Transform:
   m_ObjectHideFlags: 0

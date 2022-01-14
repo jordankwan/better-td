@@ -9,18 +9,22 @@ public class Lightning : MonoBehaviour {
   float speed = 0.01f;
 
   void Start() {
-      
+    gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
+
   }
   void OnBecameInvisible() {
     Destroy(gameObject);
   }
   // Update is called once per frame
   void OnTriggerEnter2D(Collider2D col) {
-    ENEMY.GetComponent<MetaKnight>().health -= 50;
-    Debug.Log(ENEMY.GetComponent<MetaKnight>().health);
-    // ENEMY.health -= 50;
+    if (col.gameObject.name == "MetaKnight(Clone)") {
+      ENEMY.GetComponent<MetaKnight>().health -= 50;
+      Debug.Log(ENEMY.GetComponent<MetaKnight>().health);
+      // ENEMY.health -= 50;
+
+      Destroy(gameObject);
+    }
     
-    Destroy(gameObject);
     // Destroy()
     // Debug.Log($"HERE {col}");  
       //Stuff that happens when the collider collides with something
@@ -32,7 +36,7 @@ public class Lightning : MonoBehaviour {
   //            // Do stuff
   // }
   void Update() {
-    ENEMY = GameObject.Find("MetaKnight");
+    ENEMY = GameObject.Find("MetaKnight(Clone)");
     if (ENEMY != null) {
       Vector3 pos_old = transform.position;      
       transform.position = Vector2.MoveTowards(transform.position, ENEMY.transform.position, speed);

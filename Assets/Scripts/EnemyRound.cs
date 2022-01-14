@@ -13,7 +13,7 @@ public enum EnemyType {
 public class EnemyRound : MonoBehaviour {
   // Start is called before the first frame update
   [SerializeField] GameObject META_KNIGHT;
-  public static string[,] ROUND_ARR = new string[,] {{"m5 d5.0", "d1", "m3 d3.0", "d5"}, {"m5 1.0", "d0.5", "m3 d0.5", "d3"}};
+  public static string[,] ROUND_ARR = new string[,] {{"m5 d5.0", "d1", "m3 d3.0", "d5"}, {"m5 d1.0", "d0.5", "m3 d0.5", "d3"}};
   public static int curr_round = 0;
   // string wave_reg = @"^(?<type>.)(?<amount>\d+\.?\d+?)";
   string wave_reg = @"^((?<type_enemy>.)(?<amount_enemy>\d+) )?d(?<delay>\d+\.?\d*?)$";
@@ -24,7 +24,9 @@ public class EnemyRound : MonoBehaviour {
   }
 
   IEnumerator StartSpawn() {
+
     for (int ind = 0; ind < ROUND_ARR.GetLength(0); ++ind) {
+      yield return new WaitForSeconds(1f);
       for (int jnd = 0; jnd < ROUND_ARR.GetLength(1); ++jnd) {
         string item = ROUND_ARR[ind, jnd];
         Debug.Log(item);
