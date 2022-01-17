@@ -12,6 +12,7 @@ public enum EnemyType {
 
 public class EnemyRound : MonoBehaviour {
   // Start is called before the first frame update
+  [SerializeField] GameObject START_WAYPOINT;
   [SerializeField] GameObject META_KNIGHT;
   public static string[,] ROUND_ARR = new string[,] {{"m5 d5.0", "d1", "m3 d3.0", "d5"}, {"m5 d1.0", "d0.5", "m3 d0.5", "d3"}};
   public static int curr_round = 0;
@@ -55,7 +56,8 @@ public class EnemyRound : MonoBehaviour {
             switch (enemy_type) {
               case EnemyType.MetaKnight:
                 // Instantiate(MetaKnight,)
-                var meta_knight_clone = Instantiate(META_KNIGHT, new Vector3(0, 0, 0), Quaternion.identity);
+    // transform.position = /* ; */
+                var meta_knight_clone = Instantiate(META_KNIGHT, START_WAYPOINT.transform.position, Quaternion.identity);
                 meta_knight_clone.SetActive(true);
                 break;
               default:

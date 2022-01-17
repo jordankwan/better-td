@@ -7,6 +7,7 @@ public class Lightning : MonoBehaviour {
   [SerializeField] GameObject ENEMY;
   Vector3 move_vec;
   float speed = 0.01f;
+  int damage = 1;
 
   void Start() {
     gameObject.layer = LayerMask.NameToLayer("Ignore Raycast");
@@ -18,8 +19,8 @@ public class Lightning : MonoBehaviour {
   // Update is called once per frame
   void OnTriggerEnter2D(Collider2D col) {
     if (col.gameObject.name == "MetaKnight(Clone)") {
-      ENEMY.GetComponent<MetaKnight>().health -= 50;
-      Debug.Log(ENEMY.GetComponent<MetaKnight>().health);
+      ENEMY.GetComponent<MetaKnight>().health -= damage;
+      // Debug.Log($"enemy health {ENEMY.GetComponent<MetaKnight>().health}");
       // ENEMY.health -= 50;
 
       Destroy(gameObject);

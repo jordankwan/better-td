@@ -8,7 +8,8 @@ public class GreenBuy : MonoBehaviour {
   [SerializeField] GameObject GREEN;
   [SerializeField] GameObject BULLET;
   [SerializeField] GameObject ENEMY;
-  GameObject green_clone;
+  [SerializeField] GameObject RANGE;
+  public GameObject green_clone;
   Camera CAM;
   public GameObject[] green_clone_arr;
   public int green_clone_ind;
@@ -27,8 +28,20 @@ public class GreenBuy : MonoBehaviour {
   }
   public void Click() {
     // Instantiate(GREEN,)
-    green_clone = Instantiate(GREEN, new Vector3(0, 0, 0), Quaternion.identity);
-    green_clone.SetActive(true);
+    if (Money.money >= Kirby.cost) {
+
+      green_clone = Instantiate(GREEN, new Vector3(0, 0, 0), Quaternion.identity);
+      Money.money -= Kirby.cost; 
+
+      // Vector3 mouse_pos = CAM.ScreenToWorldPoint(Input.mousePosition);
+      // green_clone.transform.position = new Vector3(mouse_pos.x, mouse_pos.y, 0);
+      green_clone.SetActive(true);
+      green_clone.GetComponent<Kirby>().range_clone = Instantiate(RANGE, gameObject.transform.position, Quaternion.identity);
+
+      green_clone.GetComponent<Kirby>().range_clone.SetActive(true);
+      // green_clone.GetComponent<Kirby>().range_clone = 
+      green_clone.GetComponent<Kirby>().SpawnRange();
+    }
 
 
     // Debug.Log("HERE");
@@ -40,14 +53,18 @@ public class GreenBuy : MonoBehaviour {
     //bullet_clone.
     bullet_clone.transform.position = new Vector3(bullet_clone.transform.position.x, bullet_clone.transform.position.y, 0f);
     bullet_clone.SetActive(true);
-    
+   
     // green_clone 
   }
   
   void ShootAll() {
     foreach (GameObject green_clone in green_clone_arr) {
       ENEMY = GameObject.Find("MetaKnight(Clone)");
-      if (green_clone != null && ENEMY != null && Vector2.Distance(ENEMY.transform.position, green_clone.transform.position) < 10) {
+      // Debug.Log(ENEMY);
+      if (green_clone != null && ENEMY != null && green_clone.GetComponent<Kirby>().range_clone.GetComponent<Range>().can_attack) {
+        // Debug.Log("fireing");
+        Debug.Log(ENEMY.transform.position);
+        Debug.Log(green_clone.transform.position);
         Fire(green_clone);
       }
     }
@@ -64,8 +81,11 @@ public class GreenBuy : MonoBehaviour {
     if (green_clone != null) {
       Vector3 mouse_pos = CAM.ScreenToWorldPoint(Input.mousePosition);
       green_clone.transform.position = new Vector3(mouse_pos.x, mouse_pos.y, 0);
+      green_clone.GetComponent<Kirby>().range_clone.transform.position = new Vector3(mouse_pos.x, mouse_pos.y, 0);
 
       if (Input.GetMouseButtonDown(0)) {
+        green_clone.GetComponent<Kirby>().spawn_range = false;
+        green_clone.GetComponent<Kirby>().SpawnRange();
         green_clone_arr[green_clone_ind++] = green_clone;
         green_clone = null;
       }
