@@ -32,7 +32,7 @@ public class Range : MonoBehaviour {
   void OnTriggerExit2D(Collider2D collision) {
     // if (collision.gameObject.name == "MetaKnight(Clone") {
     Debug.Log("someone left the range");
-    if (collision.gameObject.name == "MetaKnight(Clone)") {
+    if (collision.gameObject.tag == "Enemy") {
       can_attack = false;
     }
     // }
@@ -61,7 +61,7 @@ public class Range : MonoBehaviour {
     // Debug.Log($"you hit {collision.gameObject.name}");
     // Debug.Log("someone entered into the range");
     // Debug.Log($"someone in range {collision.gameObject.name}");
-    if (collision.gameObject.name == "MetaKnight(Clone)") {
+    if (collision.gameObject.tag == "Enemy") {
       // foreach (ContactPoint2D contact in collision.contacts) {
       //     Debug.DrawRay(contact.point, contact.normal, Color.white);
       // }

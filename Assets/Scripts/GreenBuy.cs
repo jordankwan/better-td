@@ -7,7 +7,7 @@ public class GreenBuy : MonoBehaviour {
     // Start is called before the first frame update
   [SerializeField] GameObject GREEN;
   [SerializeField] GameObject BULLET;
-  [SerializeField] GameObject ENEMY;
+  GameObject ENEMY;
   [SerializeField] GameObject RANGE;
   public GameObject green_clone;
   Camera CAM;
@@ -59,7 +59,8 @@ public class GreenBuy : MonoBehaviour {
   
   void ShootAll() {
     foreach (GameObject green_clone in green_clone_arr) {
-      ENEMY = GameObject.Find("MetaKnight(Clone)");
+      //ENEMY = GameObject.Find("MetaKnight(Clone)");
+      ENEMY = GameObject.FindWithTag("Enemy");
       // Debug.Log(ENEMY);
       if (green_clone != null && ENEMY != null && green_clone.GetComponent<Kirby>().range_clone.GetComponent<Range>().can_attack) {
         // Debug.Log("fireing");

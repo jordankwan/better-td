@@ -18,7 +18,7 @@ public class Lightning : MonoBehaviour {
   }
   // Update is called once per frame
   void OnTriggerEnter2D(Collider2D col) {
-    if (col.gameObject.name == "MetaKnight(Clone)") {
+    if (col.gameObject.tag == "Enemy") {
       ENEMY.GetComponent<MetaKnight>().health -= damage;
       // Debug.Log($"enemy health {ENEMY.GetComponent<MetaKnight>().health}");
       // ENEMY.health -= 50;
@@ -37,7 +37,7 @@ public class Lightning : MonoBehaviour {
   //            // Do stuff
   // }
   void Update() {
-    ENEMY = GameObject.Find("MetaKnight(Clone)");
+    ENEMY = GameObject.FindWithTag("Enemy");
     if (ENEMY != null) {
       Vector3 pos_old = transform.position;      
       transform.position = Vector2.MoveTowards(transform.position, ENEMY.transform.position, speed);

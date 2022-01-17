@@ -13,6 +13,7 @@ public class Kirby : MonoBehaviour {
   }
 
   public void SpawnRange() {
+    Debug.Log($"spanw range: {spawn_range}");
     if (spawn_range) {
       range_clone.SetActive(true);
       // range_clone = Instantiate(RANGE, gameObject.transform.position, Quaternion.identity);
