@@ -5,6 +5,7 @@ using UnityEngine;
 public class MetaKnight : MonoBehaviour {
   [SerializeField] public int health;
   [SerializeField] float speed = 0.01f;
+  [SerializeField] public int value;
     // Start is called before the first frame update
   [SerializeField] GameObject START_WAYPOINT;
   int waypoint_ind = 0;
@@ -27,8 +28,9 @@ public class MetaKnight : MonoBehaviour {
     }
 
     if (waypoint_ind == Waypoint.waypoint_count) {
-      Debug.Log("oh no");
-      Lives.lives -= 1;
+      Debug.Log($"oh no {health}");
+      Lives.lives -= health;
+      
       Destroy(gameObject);
     }
     // Debug.Log($"health: {health}");
@@ -36,6 +38,7 @@ public class MetaKnight : MonoBehaviour {
       // transform.position = Vector2.MoveTowards(transform.position, ENEMY.transform.position, speed);
     if (health <= 0) {
       Debug.Log($"dead {gameObject.name}");
+      Money.money += value;
       Destroy(gameObject);
     }   
   }

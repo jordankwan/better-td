@@ -86,12 +86,23 @@ public class GreenBuy : MonoBehaviour {
 
       green_clone.transform.position = new Vector3(mouse_pos.x, mouse_pos.y, 0);
       green_clone.GetComponent<Kirby>().range_clone.transform.position = new Vector3(mouse_pos.x, mouse_pos.y, 0);
+
+      //green_clone.GetComponent<Kirby>().spawn_range = true;
+      //green_clone.GetComponent<Kirby>().SpawnRange();
+
       if (Input.GetMouseButtonDown(0)) {
-        Money.money -= KIRBY.GetComponent<Kirby>().cost;
-        green_clone.GetComponent<Kirby>().spawn_range = false;
-        green_clone.GetComponent<Kirby>().SpawnRange();
-        green_clone_arr[green_clone_ind++] = green_clone;
-        green_clone = null;
+        foreach (var e in green_clone.GetComponent<Kirby>().collide_list) {
+          Debug.Log($"colList: {e.name}");
+        }
+        //Debug.Log($"list {green_clone.GetComponent<Kirby>().collide_list}");
+        if (green_clone.GetComponent<Kirby>().can_place) {
+          Money.money -= KIRBY.GetComponent<Kirby>().cost;
+          green_clone.GetComponent<Kirby>().spawn_range = true;
+          green_clone.GetComponent<Kirby>().SpawnRange();
+          green_clone_arr[green_clone_ind++] = green_clone;
+          green_clone = null;
+        }
+        
       }
     } 
   }
