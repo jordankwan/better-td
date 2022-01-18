@@ -13,7 +13,7 @@ public class Lives : MonoBehaviour
 
     // Update is called once per frame
     void Update() {
-      gameObject.GetComponent<Text>().text = $"Lives: {lives}";
+      gameObject.GetComponent<Text>().text = $"Fresh Fruits: {lives}";
       gameObject.GetComponent<Text>().color = Color.red;
       // GetComponent<Text>.color = Color.red;  
     }

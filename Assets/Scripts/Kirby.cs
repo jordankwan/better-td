@@ -9,6 +9,7 @@ public class Kirby : MonoBehaviour {
   [SerializeField] GameObject RANGE;
   // [SerializeField] public static int cost;
   [SerializeField] public int cost = 50;
+  public bool can_place = false;
   // [SerializeField] public static int cost;
   public GameObject range_clone;
   void Start() {
@@ -33,8 +34,24 @@ public class Kirby : MonoBehaviour {
     // Debug.Log("HERE");
   }
 
+  public bool CanPlace() {
+    // Component colliders = gameObject.GetComponentsInChildren(Collider);
+    Collider[] colList = transform.GetComponentsInChildren<Collider>();
+
+    foreach (Collider col in colList) {
+      Debug.Log(col.gameObject.tag);
+      if (col.gameObject.tag == "Tower" || col.gameObject.tag == "UI") {
+        return false;
+      }
+    }
+
+    return true;
+  }
+
   // Update is called once per frame
   void Update() {
+    can_place = CanPlace();
+    // Debug.Log(can_place);
     if (Input.GetMouseButtonDown(0)) {
       Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
       Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
