@@ -5,14 +5,14 @@ using UnityEngine.UI;
 
 public class GreenBuy : MonoBehaviour {
     // Start is called before the first frame update
-  [SerializeField] GameObject GREEN;
+  [SerializeField] GameObject KIRBY;
   [SerializeField] GameObject BULLET;
   GameObject ENEMY;
   [SerializeField] GameObject RANGE;
   public GameObject green_clone;
   Camera CAM;
-  public GameObject[] green_clone_arr;
-  public int green_clone_ind;
+  [SerializeField] public static GameObject[] green_clone_arr;
+  [SerializeField] public static int green_clone_ind;
   // float time = 0f;
   float reload = 1f;
   // elapsed += Time.deltaTime;
@@ -28,10 +28,12 @@ public class GreenBuy : MonoBehaviour {
   }
   public void Click() {
     // Instantiate(GREEN,)
-    if (Money.money >= Kirby.cost) {
+    if (Money.money >= KIRBY.GetComponent<Kirby>().cost) {
 
-      green_clone = Instantiate(GREEN, new Vector3(0, 0, 0), Quaternion.identity);
-      Money.money -= Kirby.cost; 
+
+      green_clone = Instantiate(KIRBY, new Vector3(0, 0, 0), Quaternion.identity);
+      // Money.money -= Kirby.cost; 
+
 
       // Vector3 mouse_pos = CAM.ScreenToWorldPoint(Input.mousePosition);
       // green_clone.transform.position = new Vector3(mouse_pos.x, mouse_pos.y, 0);
@@ -64,8 +66,8 @@ public class GreenBuy : MonoBehaviour {
       // Debug.Log(ENEMY);
       if (green_clone != null && ENEMY != null && green_clone.GetComponent<Kirby>().range_clone.GetComponent<Range>().can_attack) {
         // Debug.Log("fireing");
-        Debug.Log(ENEMY.transform.position);
-        Debug.Log(green_clone.transform.position);
+        // Debug.Log(ENEMY.transform.position);
+        // Debug.Log(green_clone.transform.position);
         Fire(green_clone);
       }
     }
@@ -81,10 +83,11 @@ public class GreenBuy : MonoBehaviour {
 
     if (green_clone != null) {
       Vector3 mouse_pos = CAM.ScreenToWorldPoint(Input.mousePosition);
+
       green_clone.transform.position = new Vector3(mouse_pos.x, mouse_pos.y, 0);
       green_clone.GetComponent<Kirby>().range_clone.transform.position = new Vector3(mouse_pos.x, mouse_pos.y, 0);
-
       if (Input.GetMouseButtonDown(0)) {
+        Money.money -= KIRBY.GetComponent<Kirby>().cost;
         green_clone.GetComponent<Kirby>().spawn_range = false;
         green_clone.GetComponent<Kirby>().SpawnRange();
         green_clone_arr[green_clone_ind++] = green_clone;

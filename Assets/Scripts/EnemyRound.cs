@@ -46,7 +46,7 @@ public class EnemyRound : MonoBehaviour {
           Debug.Break();
         }
 
-        Debug.Log("HERE");
+        // Debug.Log("HERE");
        
         switch (m["type_enemy"].Value) {
           case "m":

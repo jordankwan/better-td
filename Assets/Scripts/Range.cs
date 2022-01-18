@@ -31,7 +31,7 @@ public class Range : MonoBehaviour {
   //
   void OnTriggerExit2D(Collider2D collision) {
     // if (collision.gameObject.name == "MetaKnight(Clone") {
-    Debug.Log("someone left the range");
+    // Debug.Log("someone left the range");
     if (collision.gameObject.tag == "Enemy") {
       can_attack = false;
     }

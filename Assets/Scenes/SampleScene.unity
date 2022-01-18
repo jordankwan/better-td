@@ -2709,6 +2709,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawn_range: 1
   RANGE: {fileID: 694684873}
+  cost: 50
   range_clone: {fileID: 0}
 --- !u!1 &1298038862
 GameObject:
@@ -3000,6 +3001,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawn_range: 1
   RANGE: {fileID: 0}
+  cost: 50
   range_clone: {fileID: 0}
 --- !u!114 &1492391253
 MonoBehaviour:
@@ -3299,12 +3301,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 397ecfc72c44ad1498b6a0b4a4dcbd4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GREEN: {fileID: 1215784767}
+  KIRBY: {fileID: 1215784767}
   BULLET: {fileID: 660195769}
   RANGE: {fileID: 694684873}
   green_clone: {fileID: 0}
-  green_clone_arr: []
-  green_clone_ind: 0
 --- !u!114 &2048720857
 MonoBehaviour:
   m_ObjectHideFlags: 0
