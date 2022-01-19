@@ -72,7 +72,12 @@ public class Round : MonoBehaviour
           gameObject.GetComponent<Text>().fontSize = 100;
           gameObject.GetComponent<Text>().text = $"you are out of business";
           gameObject.GetComponent<Text>().color = Color.blue;
-        } else if (ENEMY_ROUND.GetComponent<EnemyRound>().spawn_done && GameObject.FindWithTag("Enemy") == null) {
+          StopCoroutine(ENEMY_ROUND.GetComponent<EnemyRound>().StartSpawn());
+          foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy")) {
+            Destroy(enemy);
+          }
+            
+      } else if (ENEMY_ROUND.GetComponent<EnemyRound>().spawn_done && GameObject.FindWithTag("Enemy") == null) {
           gameObject.GetComponent<Text>().enabled = true;
           gameObject.GetComponent<Text>().fontSize = 100;
           gameObject.GetComponent<Text>().text = $"you are still in business good job";

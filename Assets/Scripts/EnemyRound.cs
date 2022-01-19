@@ -9,6 +9,7 @@ public enum EnemyType {
   Fly,
   LadyBug,
   None,
+  Connor,
 }
 
 
@@ -17,6 +18,8 @@ public class EnemyRound : MonoBehaviour {
   [SerializeField] GameObject START_WAYPOINT;
   [SerializeField] GameObject FLY;
   [SerializeField] GameObject LADY_BUG;
+  [SerializeField] GameObject CONNOR;
+
   // Round RoundClass = new Round();
   // public int round = 0;
   // Round RoundClass = new Round();
@@ -25,7 +28,7 @@ public class EnemyRound : MonoBehaviour {
     new List<string> {"f5 d1.0", "l4 d0.5", "d0.5", "f3 d0.5", "d3"},
     new List<string> {"f5 d0.5", "l3 d0.3", "d3", "f2 d0.5", "l1 d0.2"},
     new List<string> {"f10 d0.25", "d0.34"},
-    new List<string> {"f1 d0.1"},
+    new List<string> {"c1 d0"},
   };
   [SerializeField] GameObject ROUND;
   public static int curr_round = 0;
@@ -53,7 +56,7 @@ public class EnemyRound : MonoBehaviour {
   //   yield return new WaitForSeconds(2f);
   // }
 
-  IEnumerator StartSpawn() {
+  public IEnumerator StartSpawn() {
 
     foreach (List<string> round in ROUND_ARR) {
 
@@ -87,6 +90,9 @@ public class EnemyRound : MonoBehaviour {
           case "l":
             enemy_type = EnemyType.LadyBug;
             break;
+          case "c":
+            enemy_type = EnemyType.Connor;
+            break;
           default:
             break;
           // case "d":
@@ -112,6 +118,9 @@ public class EnemyRound : MonoBehaviour {
                 enemy = LADY_BUG;
                 //meta_knight_clone = Instantiate(FLY, START_WAYPOINT.transform.position, Quaternion.identity);
                 //meta_knight_clone.SetActive(true);
+                break;
+              case EnemyType.Connor:
+                enemy = CONNOR;
                 break;
               default:
                 break;

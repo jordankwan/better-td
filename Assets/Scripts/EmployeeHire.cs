@@ -13,6 +13,7 @@ public class EmployeeHire : MonoBehaviour {
   Camera CAM;
   [SerializeField] public static GameObject[] green_clone_arr;
   [SerializeField] public static int green_clone_ind;
+  [SerializeField] public GameObject TEXT;
   // float time = 0f;
   // float reload = 1f;
   // elapsed += Time.deltaTime;
@@ -20,6 +21,10 @@ public class EmployeeHire : MonoBehaviour {
   void Start() {
     // Debug.Log("bruh");
     CAM = Camera.main;
+    //Debug.Log($"cost {gameObject.transform.GetChild(0).GetComponent<Text>().text}");
+    TEXT.GetComponent<Text>().text += $"\n{EMPLOYEE.GetComponent<Employee>().cost}";
+    //Debug.Log($"sher {gameObject.transform.GetChild(0).GetComponent<Text>().text}");
+    //TEXT.GetComponent<Text>().text += 
     green_clone = null;
     green_clone_ind = 0;
     green_clone_arr = new GameObject[123423];

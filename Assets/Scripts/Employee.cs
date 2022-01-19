@@ -15,6 +15,7 @@ public class Employee : MonoBehaviour {
   [SerializeField] public float reload;
   GameObject ENEMY;
   public bool placed = false;
+  
 
   // [SerializeField] public static int cost;
   public GameObject range_clone;

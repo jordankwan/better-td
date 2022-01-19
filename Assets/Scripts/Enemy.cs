@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour {
   [SerializeField] public int health;
-  [SerializeField] float speed = 0.01f;
+  [SerializeField] public float speed = 0.01f;
   [SerializeField] public int value;
     // Start is called before the first frame update
   [SerializeField] GameObject START_WAYPOINT;
+  public bool slow = false;
   int waypoint_ind = 0;
   void Start() {
     // health = 100;
