@@ -5,7 +5,7 @@ using UnityEngine;
 public class StartGame : MonoBehaviour
 {
     // Start is called before the first frame update
-    List<GameObject> obj_list = new List<GameObject>();
+    public List<GameObject> obj_list = new List<GameObject>();
     void Awake() {
       foreach (GameObject go in Resources.FindObjectsOfTypeAll(typeof(GameObject)) as GameObject[]) {
         GetObjList(go);

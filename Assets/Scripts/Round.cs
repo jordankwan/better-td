@@ -7,6 +7,8 @@ public class Round : MonoBehaviour
 {
     // Start is called before the first frame update
   public static int round = 0;
+  bool last_round = false;
+  [SerializeField] GameObject ENEMY_ROUND;
   void Start() {
 
   }
@@ -14,10 +16,24 @@ public class Round : MonoBehaviour
   public IEnumerator ShowRound() {
     // yield return new WaitForSeconds(0.1f);
     // Debug.Log("in here");
+    //
     // for (int i = 0; i < 5; ++i) {
-    gameObject.GetComponent<Text>().enabled = true;
-    yield return new WaitForSeconds(2f);
-    gameObject.GetComponent<Text>().enabled = false;
+       
+
+    if (round == EnemyRound.ROUND_ARR.Count- 1) {
+      last_round = true;
+      gameObject.GetComponent<Text>().text = "Last Round!";
+      gameObject.GetComponent<Text>().color = Color.blue;
+      gameObject.GetComponent<Text>().enabled = true;
+      yield return new WaitForSeconds(2f);
+      gameObject.GetComponent<Text>().enabled = false;
+      last_round = false;
+    } else {
+      gameObject.GetComponent<Text>().enabled = true;
+      yield return new WaitForSeconds(2f);
+      gameObject.GetComponent<Text>().enabled = false;
+    }
+
     if (round == 0) {
       // yield return new WaitForSeconds(1f);
       // int i = 0;
@@ -42,15 +58,30 @@ public class Round : MonoBehaviour
 
       yield return new WaitForSeconds(1f);
     }
+
     // Debug.Log("audi");
     round += 1;
   }
 
     // Update is called once per frame
     void Update() {
-      Debug.Log(round);
-      gameObject.GetComponent<Text>().text = $"Round {round}";
-      gameObject.GetComponent<Text>().color = Color.blue;
+      // Debug.Log(round);
+      if (!last_round) {
+        if (Lives.lives <= 0) {
+          gameObject.GetComponent<Text>().enabled = true;
+          gameObject.GetComponent<Text>().fontSize = 100;
+          gameObject.GetComponent<Text>().text = $"you are out of business";
+          gameObject.GetComponent<Text>().color = Color.blue;
+        } else if (ENEMY_ROUND.GetComponent<EnemyRound>().spawn_done && GameObject.FindWithTag("Enemy") == null) {
+          gameObject.GetComponent<Text>().enabled = true;
+          gameObject.GetComponent<Text>().fontSize = 100;
+          gameObject.GetComponent<Text>().text = $"you are still in business good job";
+          gameObject.GetComponent<Text>().color = Color.blue;
+        } else {
+          gameObject.GetComponent<Text>().text = $"Round {round}";
+          gameObject.GetComponent<Text>().color = Color.blue;
+        }
+      }
       // GetComponent<Text>.color = Color.red;  
     }
 }

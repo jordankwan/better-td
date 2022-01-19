@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public enum EnemyType {
   // Delay,
-  MetaKnight,
+  Fly,
   LadyBug,
   None,
 }
@@ -15,17 +15,21 @@ public enum EnemyType {
 public class EnemyRound : MonoBehaviour {
   // Start is called before the first frame update
   [SerializeField] GameObject START_WAYPOINT;
-  [SerializeField] GameObject META_KNIGHT;
+  [SerializeField] GameObject FLY;
   [SerializeField] GameObject LADY_BUG;
   // Round RoundClass = new Round();
   // public int round = 0;
   // Round RoundClass = new Round();
   public static List<List<string>> ROUND_ARR = new List<List<string>> {
-    new List<string> {"l1 d3", "m5 d5.0", "d1", "m3 d3.0", "d5"},
-    new List<string> {"m5 d1.0", "d0.5", "m3 d0.5", "d3"}
+    new List<string> {"l1 d3", "f5 d5.0", "l2 d1", "d1", "f3 d3.0", "d5"},
+    new List<string> {"f5 d1.0", "l4 d0.5", "d0.5", "f3 d0.5", "d3"},
+    new List<string> {"f5 d0.5", "l3 d0.3", "d3", "f2 d0.5", "l1 d0.2"},
+    new List<string> {"f10 d0.25", "d0.34"},
+    new List<string> {"f1 d0.1"},
   };
   [SerializeField] GameObject ROUND;
   public static int curr_round = 0;
+  public bool spawn_done = false;
   // string wave_reg = @"^(?<type>.)(?<amount>\d+\.?\d+?)";
   string wave_reg = @"^((?<type_enemy>.)(?<amount_enemy>\d+) )?d(?<delay>\d+\.?\d*?)$";
   // Regex wave_reg = new Regex(@"^(?<type_enemy>.)(?<amount_enemy>\d+)(?<delay>d)(?<amount_delay>\d+)$");
@@ -34,6 +38,15 @@ public class EnemyRound : MonoBehaviour {
     Debug.Log(GameObject.Find("Round").GetComponent<Text>().text); 
     StartCoroutine("StartSpawn");
   }
+
+  // void Update() {
+  //   if (spawn_done && GameObject.FindWithTag("Enemy") == null) {
+  //
+  //     // foreach (GameObject go in START_GAME.GetComponent<StartGame>().col_list) {
+  //     //
+  //     // }
+  //   }
+  // }
 
   // IEnumerator DisplayRound() {
   //    
@@ -68,8 +81,8 @@ public class EnemyRound : MonoBehaviour {
         // Debug.Log("HERE");
        
         switch (m["type_enemy"].Value) {
-          case "m":
-            enemy_type = EnemyType.MetaKnight;
+          case "f":
+            enemy_type = EnemyType.Fly;
             break;
           case "l":
             enemy_type = EnemyType.LadyBug;
@@ -88,16 +101,16 @@ public class EnemyRound : MonoBehaviour {
             GameObject enemy = null;
             switch (enemy_type) {
               //GameObject enemy;
-              case EnemyType.MetaKnight:
-                enemy = META_KNIGHT;
-                // Instantiate(MetaKnight,)
+              case EnemyType.Fly:
+                enemy = FLY;
+                // Instantiate(Fly,)
                 // transform.position = /* ; */
-                //var meta_knight_clone = Instantiate(META_KNIGHT, START_WAYPOINT.transform.position, Quaternion.identity);
+                //var meta_knight_clone = Instantiate(FLY, START_WAYPOINT.transform.position, Quaternion.identity);
                 //meta_knight_clone.SetActive(true);
                 break;
               case EnemyType.LadyBug:
                 enemy = LADY_BUG;
-                //meta_knight_clone = Instantiate(META_KNIGHT, START_WAYPOINT.transform.position, Quaternion.identity);
+                //meta_knight_clone = Instantiate(FLY, START_WAYPOINT.transform.position, Quaternion.identity);
                 //meta_knight_clone.SetActive(true);
                 break;
               default:
@@ -125,5 +138,7 @@ public class EnemyRound : MonoBehaviour {
       }
       // ++Round.round;
     }
+
+    spawn_done = true;
   }
 }
