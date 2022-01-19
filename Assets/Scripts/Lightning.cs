@@ -6,7 +6,8 @@ public class Lightning : MonoBehaviour {
   // Start is called before the first frame update
   [SerializeField] GameObject ENEMY;
   Vector3 move_vec;
-  float speed = 0.01f;
+  [SerializeField] float speed;
+  // float speed = 0.01f;
   int damage = 1;
 
   void Start() {
@@ -19,7 +20,7 @@ public class Lightning : MonoBehaviour {
   // Update is called once per frame
   void OnTriggerEnter2D(Collider2D col) {
     if (col.gameObject.tag == "Enemy") {
-      ENEMY.GetComponent<MetaKnight>().health -= damage;
+      ENEMY.GetComponent<Enemy>().health -= damage;
       // Debug.Log($"enemy health {ENEMY.GetComponent<MetaKnight>().health}");
       // ENEMY.health -= 50;
 
@@ -40,7 +41,7 @@ public class Lightning : MonoBehaviour {
     ENEMY = GameObject.FindWithTag("Enemy");
     if (ENEMY != null) {
       Vector3 pos_old = transform.position;      
-      transform.position = Vector2.MoveTowards(transform.position, ENEMY.transform.position, speed);
+      transform.position = Vector2.MoveTowards(transform.position, ENEMY.transform.position, speed * Time.deltaTime);
       move_vec = (transform.position - pos_old).normalized * speed;
       transform.right = ENEMY.transform.position - transform.position; 
       // transform.LookAt(ENEMY.transform, Vector3.down);

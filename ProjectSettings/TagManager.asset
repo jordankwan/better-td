@@ -8,6 +8,7 @@ TagManager:
   - UI
   - Tower
   - Path
+  - StartButton
   layers:
   - Default
   - TransparentFX
@@ -50,4 +51,7 @@ TagManager:
     locked: 0
   - name: Bullet
     uniqueID: 3075396041
+    locked: 0
+  - name: UI
+    uniqueID: 1599443527
     locked: 0

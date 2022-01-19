@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Text.RegularExpressions;
+using UnityEngine.UI;
 
 public enum EnemyType {
   // Delay,
@@ -16,28 +17,46 @@ public class EnemyRound : MonoBehaviour {
   [SerializeField] GameObject START_WAYPOINT;
   [SerializeField] GameObject META_KNIGHT;
   [SerializeField] GameObject LADY_BUG;
+  // Round RoundClass = new Round();
+  // public int round = 0;
+  // Round RoundClass = new Round();
   public static List<List<string>> ROUND_ARR = new List<List<string>> {
     new List<string> {"l1 d3", "m5 d5.0", "d1", "m3 d3.0", "d5"},
     new List<string> {"m5 d1.0", "d0.5", "m3 d0.5", "d3"}
   };
+  [SerializeField] GameObject ROUND;
   public static int curr_round = 0;
   // string wave_reg = @"^(?<type>.)(?<amount>\d+\.?\d+?)";
   string wave_reg = @"^((?<type_enemy>.)(?<amount_enemy>\d+) )?d(?<delay>\d+\.?\d*?)$";
   // Regex wave_reg = new Regex(@"^(?<type_enemy>.)(?<amount_enemy>\d+)(?<delay>d)(?<amount_delay>\d+)$");
   void Start() {
-
-    StartCoroutine(StartSpawn());
+    Debug.Log("text");
+    Debug.Log(GameObject.Find("Round").GetComponent<Text>().text); 
+    StartCoroutine("StartSpawn");
   }
+
+  // IEnumerator DisplayRound() {
+  //    
+  //   yield return new WaitForSeconds(2f);
+  // }
 
   IEnumerator StartSpawn() {
 
     foreach (List<string> round in ROUND_ARR) {
-      yield return new WaitForSeconds(1f);
+
+      // GameObject.Find("Round").GetComponent<Text>().text = GameObject.Find
+      yield return StartCoroutine(ROUND.GetComponent<Round>().ShowRound());
+      // Round e = Camera.main.GetComponent<Round>(); 
+      // StartCoroutine(Camera.main.GetComponent<Round>().DD());
+      // GetComponent<Round>().DF();
+      // (new Round()).DF();
+      // new Round().DF();
+
       foreach (string item in round) {
-        //string item = ROUND_ARR[ind, jnd];
+        // StartCoroutine(Round.DisplayRound());
+        // Round.StartCoroutine("DisplayRound");
+        // StartCoroutine(Round.DisplayRound());
         Debug.Log(item);
-    // foreach (string[] round in ROUND_ARR) {
-    //   foreach (string item in round) {
         GroupCollection m = Regex.Match(item, wave_reg).Groups;
         EnemyType enemy_type = EnemyType.None;
 
@@ -87,7 +106,7 @@ public class EnemyRound : MonoBehaviour {
               
             }
 
-            Debug.Log($"enemy: {enemy}");
+            // Debug.Log($"enemy: {enemy}");
 
             if (enemy != null) {
               enemy = Instantiate(enemy, START_WAYPOINT.transform.position, Quaternion.identity);
@@ -100,12 +119,11 @@ public class EnemyRound : MonoBehaviour {
         }
         // for ()
 
-  }
   // Update is called once per frame
-  void Update() {
          
         
       }
-    } 
+      // ++Round.round;
+    }
   }
 }
