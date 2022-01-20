@@ -44,9 +44,16 @@ public class EmployeeHire : MonoBehaviour
     // cancel selection of employee
     void CancelSelect()
     {
-        Destroy(green_clone.GetComponent<Employee>().range_clone);
-        Destroy(green_clone);
-        green_clone = null;
+        if (green_clone != null)
+        {
+
+            if (green_clone.GetComponent<Employee>().range_clone != null)
+            {
+                Destroy(green_clone.GetComponent<Employee>().range_clone);
+            }
+            Destroy(green_clone);
+            green_clone = null;
+        }
     }
 
     // place tower if they have the required money and it is a valid spot
