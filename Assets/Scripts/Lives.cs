@@ -14,6 +14,6 @@ public class Lives : MonoBehaviour
     void Update()
     {
         gameObject.GetComponent<Text>().text = $"Fresh Fruits: {lives}";
-        gameObject.GetComponent<Text>().color = Color.red;
+        gameObject.GetComponent<Text>().color = new Color32(74, 56, 13, 255);
     }
 }

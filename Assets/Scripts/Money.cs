@@ -14,6 +14,6 @@ public class Money : MonoBehaviour
     void Update()
     {
         gameObject.GetComponent<Text>().text = $"Money: {money}";
-        gameObject.GetComponent<Text>().color = Color.red;
+        gameObject.GetComponent<Text>().color = new Color32(74, 56, 13, 255);
     }
 }

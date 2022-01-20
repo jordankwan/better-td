@@ -39,8 +39,12 @@ public class Projectile : MonoBehaviour
                 StartCoroutine(Slow());
             }
 
-            ENEMY.GetComponent<Enemy>().health -= damage;
-            Destroy(gameObject);
+            if (ENEMY != null)
+            {
+
+                ENEMY.GetComponent<Enemy>().health -= damage;
+                Destroy(gameObject);
+            }
         }
     }
 
