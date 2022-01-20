@@ -86,7 +86,7 @@ public class Round : MonoBehaviour
             else
             {
                 gameObject.GetComponent<Text>().text = $"Round {round}";
-                gameObject.GetComponent<Text>().color = Color.blue;
+                gameObject.GetComponent<Text>().color = Color.black;
             }
         }
     }

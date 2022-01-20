@@ -13,13 +13,13 @@ public class GameOver : MonoBehaviour
         {
             gameObject.GetComponent<Text>().fontSize = 100;
             gameObject.GetComponent<Text>().text = $"you are still in business good job";
-            gameObject.GetComponent<Text>().color = Color.blue;
+            gameObject.GetComponent<Text>().color = Color.white;
         }
         else
         {
             gameObject.GetComponent<Text>().fontSize = 100;
             gameObject.GetComponent<Text>().text = $"the insects ate all your fresh fruit!\nyou must find another job";
-            gameObject.GetComponent<Text>().color = Color.blue;
+            gameObject.GetComponent<Text>().color = Color.white;
         }
     }
 
