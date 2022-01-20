@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class Money : MonoBehaviour
 {
     // Start is called before the first frame update
-    public static int money = 100;
+    [SerializeField] public int money = 100;
     void Start() {
 
 

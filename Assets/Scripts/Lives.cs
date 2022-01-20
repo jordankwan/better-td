@@ -6,7 +6,9 @@ using UnityEngine.UI;
 public class Lives : MonoBehaviour
 {
     // Start is called before the first frame update
-    public static int lives = 100;
+    // public int e = 0;
+    [SerializeField] public int lives;
+    [SerializeField] public GameObject bruh;
     void Start() {
 
     }

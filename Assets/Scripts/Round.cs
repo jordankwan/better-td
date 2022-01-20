@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Round : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class Round : MonoBehaviour
   public static int round = 0;
   bool last_round = false;
   [SerializeField] GameObject ENEMY_ROUND;
+  [SerializeField] GameObject LIVES;
+  [SerializeField] GameObject MONEY;
+
   void Start() {
 
   }
@@ -67,21 +71,27 @@ public class Round : MonoBehaviour
     void Update() {
       // Debug.Log(round);
       if (!last_round) {
-        if (Lives.lives <= 0) {
-          gameObject.GetComponent<Text>().enabled = true;
-          gameObject.GetComponent<Text>().fontSize = 100;
-          gameObject.GetComponent<Text>().text = $"you are out of business";
-          gameObject.GetComponent<Text>().color = Color.blue;
-          StopCoroutine(ENEMY_ROUND.GetComponent<EnemyRound>().StartSpawn());
-          foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy")) {
-            Destroy(enemy);
-          }
+        if (LIVES.GetComponent<Lives>().lives <= 0) {
+          PlayerPrefs.SetInt("Win", 0);
+          SceneManager.LoadScene("GameOver");
+          
+          // gameObject.GetComponent<Text>().enabled = true;
+          // GameObject.Find(".GetComponent<Text>().fontSize = 100;
+          // gameObject.GetComponent<Text>().text = $"you are out of business";
+          // gameObject.GetComponent<Text>().color = Color.blue;
+          // StopCoroutine(ENEMY_ROUND.GetComponent<EnemyRound>().StartSpawn());
+          // foreach (GameObject enemy in GameObject.FindGameObjectsWithTag("Enemy")) {
+          //   Destroy(enemy);
+          // }
             
       } else if (ENEMY_ROUND.GetComponent<EnemyRound>().spawn_done && GameObject.FindWithTag("Enemy") == null) {
-          gameObject.GetComponent<Text>().enabled = true;
-          gameObject.GetComponent<Text>().fontSize = 100;
-          gameObject.GetComponent<Text>().text = $"you are still in business good job";
-          gameObject.GetComponent<Text>().color = Color.blue;
+          PlayerPrefs.SetInt("Win", 1);
+          SceneManager.LoadScene("GameOver");
+          // SceneManager.LoadScene("GameOver");
+          // gameObject.GetComponent<Text>().enabled = true;
+          // gameObject.GetComponent<Text>().fontSize = 100;
+          // gameObject.GetComponent<Text>().text = $"you are still in business good job";
+          // gameObject.GetComponent<Text>().color = Color.blue;
         } else {
           gameObject.GetComponent<Text>().text = $"Round {round}";
           gameObject.GetComponent<Text>().color = Color.blue;

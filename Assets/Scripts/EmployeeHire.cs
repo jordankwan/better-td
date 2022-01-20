@@ -13,17 +13,24 @@ public class EmployeeHire : MonoBehaviour {
   Camera CAM;
   [SerializeField] public static GameObject[] green_clone_arr;
   [SerializeField] public static int green_clone_ind;
-  [SerializeField] public GameObject TEXT;
+  [SerializeField] Text TEXT;
+  [SerializeField] GameObject MONEY;
+  // Text text;
   // float time = 0f;
   // float reload = 1f;
   // elapsed += Time.deltaTime;
   
   void Start() {
+    // text = TEXT.GetComponent<Text>();
     // Debug.Log("bruh");
     CAM = Camera.main;
+    // TEXT.text = "e";
     //Debug.Log($"cost {gameObject.transform.GetChild(0).GetComponent<Text>().text}");
-    TEXT.GetComponent<Text>().text += $"\n{EMPLOYEE.GetComponent<Employee>().cost}";
-    //Debug.Log($"sher {gameObject.transform.GetChild(0).GetComponent<Text>().text}");
+    // Debug.Log($"bef text: {TEXT.text }");
+    // Debug.Log($"cost : {EMPLOYEE.GetComponent<Employee>().cost}");
+    TEXT.text = $"Hire {EMPLOYEE.name}\n${EMPLOYEE.GetComponent<Employee>().cost}";
+    // //Debug.Log($"sher {gameObject.transform.GetChild(0).GetComponent<Text>().text}");
+    // Debug.Log($"aft text: {TEXT.text }");
     //TEXT.GetComponent<Text>().text += 
     green_clone = null;
     green_clone_ind = 0;
@@ -34,7 +41,7 @@ public class EmployeeHire : MonoBehaviour {
   }
   public void Click() {
     // Instantiate(GREEN,)
-    if (Money.money >= EMPLOYEE.GetComponent<Employee>().cost) {
+    if (MONEY.GetComponent<Money>().money >= EMPLOYEE.GetComponent<Employee>().cost) {
 
 
       green_clone = Instantiate(EMPLOYEE, new Vector3(0, 0, 0), Quaternion.identity);
@@ -64,6 +71,17 @@ public class EmployeeHire : MonoBehaviour {
     //   time = 0;
     //   
     // }
+   // if (Input.GetKeyDown(KeyCode.Escape)) {
+   //   
+   //  // Debug.Log("Escape key was pressed");
+   // } 
+    if (Input.GetKeyDown(KeyCode.Escape)) {
+      Destroy(green_clone.GetComponent<Employee>().range_clone);
+      Destroy(green_clone);
+      // Destroy(range_clone);
+      green_clone = null;
+     // Debug.Log("Escape key was pressed");
+    } 
 
     if (green_clone != null) {
       Vector3 mouse_pos = CAM.ScreenToWorldPoint(Input.mousePosition);
@@ -80,7 +98,7 @@ public class EmployeeHire : MonoBehaviour {
         // }
         //Debug.Log($"list {green_clone.GetComponent<Employee>().collide_list}");
         if (green_clone.GetComponent<Employee>().can_place) {
-          Money.money -= EMPLOYEE.GetComponent<Employee>().cost;
+          MONEY.GetComponent<Money>().money -= EMPLOYEE.GetComponent<Employee>().cost;
           green_clone.GetComponent<Employee>().placed = true;
           // green_clone.GetComponent<Employee>().spawn_range = true;
           // green_clone.GetComponent<Employee>().SpawnRange();
