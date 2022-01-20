@@ -39,10 +39,10 @@ public class Projectile : MonoBehaviour
                 StartCoroutine(Slow());
             }
 
-            if (ENEMY != null)
+            if (col.gameObject != null)
             {
 
-                ENEMY.GetComponent<Enemy>().health -= damage;
+                col.gameObject.GetComponent<Enemy>().health -= damage;
                 Destroy(gameObject);
             }
         }
@@ -62,12 +62,19 @@ public class Projectile : MonoBehaviour
     // function to determine which enemy to shoot
     void GetEnemy()
     {
-        Vector3 current_pos = transform.position;
-        ENEMY = GameObject.FindWithTag("Enemy");
+      Vector3 current_pos = transform.position;
+      float min_dist = 99999;
+      foreach (GameObject e in GameObject.FindGameObjectsWithTag("Enemy")) {
+        float dist = Vector3.Distance(e.transform.position, current_pos);
+        if (dist < min_dist) {
+          ENEMY = e.transform.gameObject;
+          min_dist = dist;
+        }
+      }
     }
 
-    // function to make the projectile move towards the enemy
-    void MoveTowardsEnemy()
+  // function to make the projectile move towards the enemy
+  void MoveTowardsEnemy()
     {
 
         Vector3 pos_old = transform.position;
