@@ -3,22 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// handle main menu stuff
 public class MainMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
-    // public List<GameObject> obj_list = new List<GameObject>();
-    void Awake() {
-      // foreach (GameObject go in Resources.FindObjectsOfTypeAll(typeof(GameObject)) as GameObject[]) {
-      //   GetObjList(go);
-      // }
-    }
-    public void Click() {
-      SceneManager.LoadScene("Menu");
+    // function to load the menu scene when the click the menu button in the game
+    public void Click()
+    {
+        SceneManager.LoadScene("Menu");
     }
 
-    // Update is called once per frame
-    void Update() {
-        
-    }
 }
 

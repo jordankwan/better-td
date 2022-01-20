@@ -550,13 +550,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c162ddffc46304c429441780cee72053, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawn_range: 1
   RANGE: {fileID: 694684873}
   cost: 300
-  can_place: 0
   BULLET: {fileID: 1773148442}
-  collide_list: []
   reload: 0.5
+  spawn_range: 1
+  can_place: 0
+  collide_list: []
   placed: 0
   range_clone: {fileID: 0}
 --- !u!4 &115019951
@@ -1634,7 +1634,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: eff89014194a01e46a59e67e229bf200, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5e1897b94394f4d4196f0bf55f093cbd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1684,8 +1684,8 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -1.39, y: -1.475}
-      - {x: -1.36, y: -1.375}
+    - - {x: -1.38, y: -1.605}
+      - {x: -1.39, y: -1.375}
       - {x: -1.29, y: -1.255}
       - {x: -0.32999998, y: -1.255}
       - {x: -0.32, y: -1.265}
@@ -1705,7 +1705,6 @@ PolygonCollider2D:
       - {x: 2.45, y: -0.185}
       - {x: 2.45, y: 0.035}
       - {x: 2.37, y: 0.155}
-      - {x: 2.31, y: 0.205}
       - {x: 2.25, y: 0.315}
       - {x: 2.03, y: 0.625}
       - {x: 1.81, y: 0.865}
@@ -1744,13 +1743,18 @@ PolygonCollider2D:
       - {x: -3.23, y: 1.645}
       - {x: -3.3899999, y: 1.8249999}
       - {x: -3.4099998, y: 1.895}
-      - {x: -3.4099998, y: 2.195}
-      - {x: -3.4199998, y: 2.205}
-      - {x: -3.9499998, y: 2.205}
-      - {x: -3.9499998, y: 2.135}
-      - {x: -3.8999999, y: 1.935}
-      - {x: -3.84, y: 1.7149999}
-      - {x: -3.6899998, y: 1.495}
+      - {x: -3.34, y: 2.0449998}
+      - {x: -3.1599998, y: 2.085}
+      - {x: -2.97, y: 2.145}
+      - {x: -2.8999999, y: 2.185}
+      - {x: -2.8999999, y: 2.205}
+      - {x: -4.17, y: 2.205}
+      - {x: -4.17, y: 2.085}
+      - {x: -4.14, y: 2.055}
+      - {x: -3.8999999, y: 1.905}
+      - {x: -3.83, y: 1.7249999}
+      - {x: -3.78, y: 1.625}
+      - {x: -3.73, y: 1.545}
       - {x: -3.59, y: 1.305}
       - {x: -3.4099998, y: 1.055}
       - {x: -3.27, y: 0.91499996}
@@ -1758,8 +1762,7 @@ PolygonCollider2D:
       - {x: -2.97, y: 0.905}
       - {x: -2.87, y: 0.955}
       - {x: -2.76, y: 1.025}
-      - {x: -2.6399999, y: 1.125}
-      - {x: -2.49, y: 1.285}
+      - {x: -2.48, y: 1.285}
       - {x: -2.37, y: 1.3149999}
       - {x: -2.18, y: 1.165}
       - {x: -2.01, y: 1.015}
@@ -1805,21 +1808,19 @@ PolygonCollider2D:
       - {x: -0.62, y: -0.675}
       - {x: -0.97999996, y: -0.685}
       - {x: -1.26, y: -0.775}
-      - {x: -1.36, y: -0.835}
-      - {x: -1.79, y: -0.995}
-      - {x: -1.9399999, y: -1.125}
-      - {x: -1.9799999, y: -1.3249999}
-      - {x: -1.9599999, y: -1.4449999}
-      - {x: -1.9799999, y: -1.545}
-      - {x: -1.9599999, y: -1.605}
-      - {x: -1.9399999, y: -1.885}
-      - {x: -1.93, y: -1.925}
-      - {x: -1.93, y: -2.185}
-      - {x: -1.9, y: -2.205}
-      - {x: -1.4499999, y: -2.205}
+      - {x: -1.48, y: -0.885}
+      - {x: -1.79, y: -1.005}
+      - {x: -1.91, y: -1.105}
+      - {x: -1.9599999, y: -1.225}
+      - {x: -1.9799999, y: -1.3149999}
+      - {x: -1.9799999, y: -1.625}
+      - {x: -1.9599999, y: -1.985}
+      - {x: -2.1299999, y: -2.185}
+      - {x: -2.12, y: -2.205}
+      - {x: -1.38, y: -2.205}
+      - {x: -1.39, y: -2.175}
       - {x: -1.43, y: -2.155}
-      - {x: -1.42, y: -1.905}
-      - {x: -1.36, y: -1.5649999}
+      - {x: -1.42, y: -1.665}
 --- !u!50 &609482067
 Rigidbody2D:
   serializedVersion: 4
@@ -2034,7 +2035,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 660195769}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18a027d670fe1284cb0682dc5070c0a7, type: 3}
+  m_Script: {fileID: 11500000, guid: 1f6fbe75a13e7f948a1efd269b641f80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ENEMY: {fileID: 831823008}
@@ -2082,12 +2083,12 @@ SpriteRenderer:
   m_SortingLayerID: -1219571255
   m_SortingLayer: 2
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: b96c2139e65e4654196c0ccee4f69125, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 507904da14bb67041b091338dcc467dd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.96, y: 1.71}
+  m_Size: {x: 0.86, y: 1.54}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -2102,7 +2103,7 @@ Transform:
   m_GameObject: {fileID: 660195769}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 5.3568506, y: -1.5261055, z: 17.302395}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 901730976}
   m_RootOrder: 0
@@ -2124,8 +2125,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.71, y: 2.95}
-    newSize: {x: 2.96, y: 1.71}
+    oldSize: {x: 0.86, y: 1.54}
+    newSize: {x: 0.86, y: 1.54}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -2409,13 +2410,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c162ddffc46304c429441780cee72053, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawn_range: 1
   RANGE: {fileID: 694684873}
   cost: 1000
-  can_place: 0
   BULLET: {fileID: 1701162929}
-  collide_list: []
   reload: 3
+  spawn_range: 1
+  can_place: 0
+  collide_list: []
   placed: 0
   range_clone: {fileID: 0}
 --- !u!4 &751445570
@@ -2594,9 +2595,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EMPLOYEE: {fileID: 751445565}
   RANGE: {fileID: 694684873}
-  green_clone: {fileID: 0}
   TEXT: {fileID: 1085370807}
-  MONEY: {fileID: 0}
+  MONEY: {fileID: 1298038862}
+  green_clone: {fileID: 0}
 --- !u!114 &771493355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4105,13 +4106,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c162ddffc46304c429441780cee72053, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawn_range: 1
   RANGE: {fileID: 694684873}
   cost: 75
-  can_place: 0
   BULLET: {fileID: 660195769}
-  collide_list: []
   reload: 1.15
+  spawn_range: 1
+  can_place: 0
+  collide_list: []
   placed: 0
   range_clone: {fileID: 0}
 --- !u!1 &1256341289
@@ -5183,14 +5184,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1701162929}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18a027d670fe1284cb0682dc5070c0a7, type: 3}
+  m_Script: {fileID: 11500000, guid: 1f6fbe75a13e7f948a1efd269b641f80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ENEMY: {fileID: 831823008}
   speed: 3
   freeze: 1
   slow_mult: 0.5
-  slow_time: 1
+  slow_time: 2
 --- !u!1 &1773148442
 GameObject:
   m_ObjectHideFlags: 0
@@ -5267,7 +5268,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1773148442}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18a027d670fe1284cb0682dc5070c0a7, type: 3}
+  m_Script: {fileID: 11500000, guid: 1f6fbe75a13e7f948a1efd269b641f80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ENEMY: {fileID: 831823008}
@@ -5726,9 +5727,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EMPLOYEE: {fileID: 1215784767}
   RANGE: {fileID: 694684873}
-  green_clone: {fileID: 0}
   TEXT: {fileID: 1541653455}
-  MONEY: {fileID: 0}
+  MONEY: {fileID: 1298038862}
+  green_clone: {fileID: 0}
 --- !u!114 &2048720857
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5944,7 +5945,6 @@ GameObject:
   - component: {fileID: 2066362732}
   - component: {fileID: 2066362731}
   - component: {fileID: 2066362730}
-  - component: {fileID: 2066362737}
   m_Layer: 5
   m_Name: PikachuBuy
   m_TagString: UI
@@ -6091,9 +6091,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EMPLOYEE: {fileID: 115019946}
   RANGE: {fileID: 694684873}
-  green_clone: {fileID: 0}
   TEXT: {fileID: 1256341291}
-  MONEY: {fileID: 0}
+  MONEY: {fileID: 1298038862}
+  green_clone: {fileID: 0}
 --- !u!114 &2066362734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6188,15 +6188,3 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2066362728}
   m_CullTransparentMesh: 1
---- !u!114 &2066362737
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2066362728}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe46adbd12e4bc84db6a4d6360e82416, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
