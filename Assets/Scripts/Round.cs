@@ -85,7 +85,7 @@ public class Round : MonoBehaviour
             // show round
             else
             {
-                gameObject.GetComponent<Text>().text = $"Round {round}";
+                gameObject.GetComponent<Text>().text = $"Round {round + 1}";
                 gameObject.GetComponent<Text>().color = Color.black;
             }
         }
