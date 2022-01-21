@@ -34,7 +34,6 @@ public class EnemyRound : MonoBehaviour
     };
 
 
-    public static int curr_round = 0;
     public bool spawn_done = false;
     string wave_reg = @"^((?<type_enemy>.)(?<amount_enemy>\d+) )?d(?<delay>\d+\.?\d*?)$";
 

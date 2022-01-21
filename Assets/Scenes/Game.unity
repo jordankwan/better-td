@@ -775,10 +775,10 @@ RectTransform:
   m_Father: {fileID: 1492391256}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -329.8, y: -437.73004}
-  m_SizeDelta: {x: 174.4, y: 51.71}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -332, y: -169.34}
+  m_SizeDelta: {x: 174.4, y: 51.70999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &387446710
 MonoBehaviour:
@@ -1029,7 +1029,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 318.3, y: -215.5}
+  m_AnchoredPosition: {x: 315, y: -179.7}
   m_SizeDelta: {x: 200.42, y: 30.99}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &435818920
@@ -3512,7 +3512,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 972493966}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.09, y: -0.3701107, z: 4.341378}
+  m_LocalPosition: {x: 5.13, y: -0.3701107, z: 4.341378}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 1326616368}
@@ -4430,7 +4430,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 334.7, y: -184}
+  m_AnchoredPosition: {x: 332.9, y: -148.70999}
   m_SizeDelta: {x: 151.13, y: 30.99}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1298038864
@@ -4692,6 +4692,7 @@ MonoBehaviour:
   ENEMY_ROUND: {fileID: 1051797584}
   LIVES: {fileID: 435818918}
   MONEY: {fileID: 1298038862}
+  round: 0
 --- !u!1 &1332338090
 GameObject:
   m_ObjectHideFlags: 0
@@ -4997,7 +4998,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1345643917}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.80785, y: -0.3701107, z: 4.341378}
+  m_LocalPosition: {x: -7.84, y: -0.3701107, z: 4.341378}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 1326616368}

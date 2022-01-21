@@ -12,7 +12,7 @@ public class Round : MonoBehaviour
     [SerializeField] GameObject ENEMY_ROUND;
     [SerializeField] GameObject LIVES;
     [SerializeField] GameObject MONEY;
-    public static int round = 0;
+    public int round = 0;
     bool last_round = false;
 
 
